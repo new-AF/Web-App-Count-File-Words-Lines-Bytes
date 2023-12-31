@@ -31,16 +31,18 @@ class Upload {
             wordCount,
             byteCount,
         });
+
+        this.table.append(row);
     }
     setRowContent(
         row,
         { fileName, fileSize, lineCount, wordCount, byteCount }
     ) {
-        const nameCell = row.querySelector("file-name");
-        const sizeCell = row.querySelector("file-size");
-        const lineCountCell = row.querySelector("line-count");
-        const wordCountCell = row.querySelector("word-count");
-        const byteCountCell = row.querySelector("byte-count");
+        const nameCell = row.querySelector(".file-name");
+        const sizeCell = row.querySelector(".file-size");
+        const lineCountCell = row.querySelector(".line-count");
+        const wordCountCell = row.querySelector(".word-count");
+        const byteCountCell = row.querySelector(".byte-count");
 
         nameCell.textContent = fileName;
         sizeCell.textContent = fileSize;
