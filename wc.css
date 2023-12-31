@@ -73,8 +73,11 @@ table {
     border: thick solid var(--color-border);
     border-collapse: collapse;
 }
-table th {
+table th,
+table td {
     border: thin solid var(--color-border);
+}
+tbody {
 }
 .button {
     all: inherit;
