@@ -104,7 +104,7 @@ main {
     padding-inline: var(--main-padding-inline);
 }
 footer {
-    padding: var(--footer-padding-block);
+    padding-block: var(--footer-padding-block);
     text-align: center;
 }
 @media (prefers-color-scheme: dark) {
