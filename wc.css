@@ -82,6 +82,9 @@
     box-sizing: border-box;
     margin: 0;
 }
+input[type="file"] {
+    all: inherit;
+}
 body {
     background-color: var(--color-bg);
     color: var(--color-text);
