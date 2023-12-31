@@ -64,9 +64,6 @@
 h1 {
     text-align: center;
 }
-input[type="file"] {
-    all: inherit;
-}
 .button {
     all: inherit;
     padding: var(--button-padding);
@@ -75,13 +72,13 @@ input[type="file"] {
     border-radius: var(--border-radius);
     transition: all var(--transition-time-style);
 }
-.button {
+.button:hover {
     backdrop-filter: var(--hover-brightness);
 }
 .form {
     width: 100%;
 }
-#upload {
+#upload .input {
     display: none;
 }
 body {
