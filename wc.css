@@ -99,11 +99,22 @@ button,
 input[type="file"]::file-selector-button:hover {
     backdrop-filter: var(--hover-brightness);
 }
+.form {
+    width: 100%;
+}
+#upload::file-selector-button {
+    border-style: dashed;
+    width: 100%;
+}
 body {
     background-color: var(--color-bg);
     color: var(--color-text);
     font-family: system-ui;
     letter-spacing: var(--letter-spacing);
+}
+main {
+    display: grid;
+    grid-template-columns: 1fr;
 }
 @media (prefers-color-scheme: dark) {
     :root {
