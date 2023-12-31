@@ -78,7 +78,10 @@ h1 {
 .form {
     width: 100%;
 }
-#upload .input {
+.upload .button {
+    border-style: dashed;
+}
+.upload .input {
     display: none;
 }
 body {

@@ -10,6 +10,6 @@ class Upload {
 }
 
 const upload = new Upload(
-    document.querySelector("#upload .button"),
-    document.querySelector("#upload .input")
+    document.querySelector(".upload .button"),
+    document.querySelector(".upload .input")
 );
