@@ -113,6 +113,7 @@ input[type="file"]::file-selector-button:hover {
     width: 100%;
 }
 body {
+    min-height: 100vh;
     background-color: var(--color-bg);
     color: var(--color-text);
     font-family: system-ui;
@@ -120,11 +121,16 @@ body {
     display: grid;
     row-gap: var(--big-gap);
     padding-block-start: var(--body-padding-block-start);
+    grid-template-rows: auto 1fr auto;
 }
 main {
     display: grid;
     grid-template-columns: 1fr;
     padding-inline: var(--main-padding-inline);
+}
+footer {
+    padding: var(--footer-padding-block);
+    text-align: center;
 }
 @media (prefers-color-scheme: dark) {
     :root {
