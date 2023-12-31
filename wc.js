@@ -6,6 +6,13 @@ class Upload {
     }
     prepare() {
         this.label.addEventListener("click", () => this.input.click());
+        this.label.addEventListener("click", (event) => this.onclick(event));
+    }
+    get files() {
+        return this.input.files;
+    }
+    onclick(event) {
+        console.log(event);
     }
 }
 
