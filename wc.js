@@ -18,15 +18,26 @@ class Upload {
     get files() {
         return this.input.files;
     }
+    newObject(
+        fileName,
+        fileSize,
+        lineCount = undefined,
+        wordCount = undefined,
+        byteCount = undefined
+    ) {
+        return {
+            fileName,
+            fileSize,
+            lineCount,
+            wordCount,
+            byteCount,
+        };
+    }
     onchange(event) {
         console.log(event, this.files);
-        const files = Array.from(this.files).map(({ name, size }) => ({
-            fileName: name,
-            fileSize: size,
-            lineCount: undefined,
-            wordCount: undefined,
-            byteCount: undefined,
-        }));
+        const files = Array.from(this.files).map(({ name, size }) =>
+            this.newObject(name, size)
+        );
 
         this.addMultipleRows(files);
     }
