@@ -69,6 +69,9 @@ fieldset {
     padding: var(--zero);
     border: none;
 }
+table {
+    border: thick solid var(--color-border);
+}
 .button {
     all: inherit;
     padding: var(--button-padding);
@@ -112,6 +115,7 @@ main {
     display: grid;
     grid-template-columns: 1fr;
     padding-inline: var(--main-padding-inline);
+    row-gap: var(--main-row-gap);
 }
 footer {
     padding-block: var(--footer-padding-block);
