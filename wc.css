@@ -53,6 +53,9 @@
     --nav-entry-padding-inline: var(--one-em);
     --nav-entry-bg: aliceblue;
 
+    /* body */
+    --body-padding-block-start: var(--big-gap);
+
     /* main */
     --main-padding-inline: var(--two-em);
     --main-row-gap: var(--two-em);
@@ -83,6 +86,9 @@
     box-sizing: border-box;
     margin: 0;
 }
+h1 {
+    text-align: center;
+}
 input[type="file"] {
     all: inherit;
 }
@@ -111,10 +117,14 @@ body {
     color: var(--color-text);
     font-family: system-ui;
     letter-spacing: var(--letter-spacing);
+    display: grid;
+    row-gap: var(--big-gap);
+    padding-block-start: var(--body-padding-block-start);
 }
 main {
     display: grid;
     grid-template-columns: 1fr;
+    padding-inline: var(--main-padding-inline);
 }
 @media (prefers-color-scheme: dark) {
     :root {
