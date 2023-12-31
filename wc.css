@@ -75,6 +75,7 @@ table {
 }
 table th,
 table td {
+    text-align: center;
     border: thin solid var(--color-border);
 }
 tbody {
