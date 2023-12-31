@@ -21,34 +21,34 @@ class Upload {
     onclick(event) {
         console.log(event);
     }
-    addRow({ fileName, fileSize, lineCount, wordCount, byteCount }) {
-        const row = this.templateRow.cloneNode(true);
+    addMultipleRows(...objs) {
+        const rows = objs.map((o) => this.templateRow.cloneNode(true));
 
-        this.setRowContent(row, {
-            fileName,
-            fileSize,
-            lineCount,
-            wordCount,
-            byteCount,
-        });
+        this.setMultipleRowsContent(rows, objs);
 
-        this.table.append(row);
+        this.table.append(...rows);
     }
-    setRowContent(
-        row,
-        { fileName, fileSize, lineCount, wordCount, byteCount }
-    ) {
-        const nameCell = row.querySelector(".file-name");
-        const sizeCell = row.querySelector(".file-size");
-        const lineCountCell = row.querySelector(".line-count");
-        const wordCountCell = row.querySelector(".word-count");
-        const byteCountCell = row.querySelector(".byte-count");
+    setMultipleRowsContent(rows, objs) {
+        objs.forEach(
+            (
+                { fileName, fileSize, lineCount, wordCount, byteCount },
+                index
+            ) => {
+                const row = rows[index];
 
-        nameCell.textContent = fileName;
-        sizeCell.textContent = fileSize;
-        lineCountCell.textContent = lineCount;
-        wordCountCell.textContent = wordCount;
-        byteCountCell.textContent = byteCount;
+                const nameCell = row.querySelector(".file-name");
+                const sizeCell = row.querySelector(".file-size");
+                const lineCountCell = row.querySelector(".line-count");
+                const wordCountCell = row.querySelector(".word-count");
+                const byteCountCell = row.querySelector(".byte-count");
+
+                nameCell.textContent = fileName;
+                sizeCell.textContent = fileSize;
+                lineCountCell.textContent = lineCount;
+                wordCountCell.textContent = wordCount;
+                byteCountCell.textContent = byteCount;
+            }
+        );
     }
 }
 
