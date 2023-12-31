@@ -71,6 +71,10 @@ fieldset {
 }
 table {
     border: thick solid var(--color-border);
+    border-collapse: collapse;
+}
+table th {
+    border: thin solid var(--color-border);
 }
 .button {
     all: inherit;
