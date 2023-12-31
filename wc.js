@@ -2,9 +2,9 @@ class Upload {
     constructor(label, input) {
         this.label = label;
         this.input = input;
-        this.prepare();
+        this.init();
     }
-    prepare() {
+    init() {
         this.label.addEventListener("click", () => this.input.click());
         this.label.addEventListener("click", (event) => this.onclick(event));
     }
