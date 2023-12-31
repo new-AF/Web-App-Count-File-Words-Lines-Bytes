@@ -42,17 +42,6 @@
     --letter-spacing: 0.1em;
     --hover-brightness: brightness(1.8);
 
-    /* .link */
-    --link-col-gap: var(--quarter-em);
-    --link-grid-cols: var(--one-em) var(--one-em) 1fr;
-    --link-text-padding-left: var(--half-em);
-
-    /* .nav */
-    --nav-row-gap: var(--one-em);
-    --nav-entry-padding-block: var(--one-em);
-    --nav-entry-padding-inline: var(--one-em);
-    --nav-entry-bg: aliceblue;
-
     /* body */
     --body-padding-block-start: var(--big-gap);
 
@@ -64,20 +53,6 @@
     --section-row-gap: var(--one-em);
     --section-padding-inline: var(--big-gap);
     --section-padding-block: var(--big-gap);
-
-    /* .section.projects */
-    --projects-scroll-margin-inline-start: calc(5 * var(--one-em));
-    --projects-entry-border-radius: var(--quarter-em);
-    --projects-entry-padding: var(--one-em);
-
-    /* .section.contact */
-    --button-border-radius: var(--half-em);
-    --contact-fildset-column-gap: var(--two-em);
-    --contact-fildset-row-gap: var(--two-em);
-    --contact-input-border-radius: var(--border-radius);
-    --contact-submit-border-radius: var(--border-radius);
-    --contact-input-padding-inline: var(--one-em);
-    --contact-input-padding-block: var(--zero);
 
     /* footer */
     --footer-padding-block: var(--big-gap);
