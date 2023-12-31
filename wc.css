@@ -1,8 +1,8 @@
 :root {
     /* fonts */
     --font-monospace: "consolas", "lucida console", "Courier New", monospace;
-    --font-size-h2: clamp(2.0736rem, 2.0736rem + 1vw, 2.4883rem);
-    --font-size-h3: clamp(1.44rem, 1.44rem + 1vw, 1.728rem);
+    --font-size-h1: clamp(2.0736rem, 2.0736rem + 1vw, 2.4883rem);
+    --font-size-h2: clamp(1.44rem, 1.44rem + 1vw, 1.728rem);
 
     /* 1em, 2em, ... */
     --two-em: 2em;
@@ -63,6 +63,7 @@
 }
 h1 {
     text-align: center;
+    font-size: var(--font-size-h1);
 }
 fieldset {
     padding: var(--zero);
@@ -81,9 +82,12 @@ fieldset {
 }
 .form {
     width: 100%;
+    font-size: var(--font-size-h2);
 }
 .upload .button {
     border-style: dashed;
+    border-width: thick;
+    filter: brightness(0.8);
 }
 .upload .input {
     display: none;
