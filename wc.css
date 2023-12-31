@@ -40,6 +40,7 @@
     --big-gap: calc(2 * var(--small-gap));
     --button-padding: var(--small-gap);
     --letter-spacing: 0.1em;
+    --hover-brightness: brightness(1.8);
 
     /* .link */
     --link-col-gap: var(--quarter-em);
@@ -84,6 +85,19 @@
 }
 input[type="file"] {
     all: inherit;
+}
+button,
+input[type="file"]::file-selector-button {
+    all: inherit;
+    padding: var(--button-padding);
+    cursor: pointer;
+    border: medium solid var(--color-border);
+    border-radius: var(--border-radius);
+    transition: all var(--transition-time-style);
+}
+button,
+input[type="file"]::file-selector-button:hover {
+    backdrop-filter: var(--hover-brightness);
 }
 body {
     background-color: var(--color-bg);
