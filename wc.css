@@ -84,10 +84,15 @@ fieldset {
     width: 100%;
     font-size: var(--font-size-h2);
 }
+.upload {
+    height: 100%;
+}
 .upload .button {
     border-style: dashed;
     border-width: thick;
     filter: brightness(0.8);
+    display: grid;
+    align-content: center;
 }
 .upload .input {
     display: none;
