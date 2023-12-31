@@ -75,8 +75,10 @@ table {
 }
 table th,
 table td {
-    text-align: center;
+    padding: var(--zero);
     border: thin solid var(--color-border);
+    text-align: left;
+    padding-inline: var(--small-gap);
 }
 tbody {
 }
