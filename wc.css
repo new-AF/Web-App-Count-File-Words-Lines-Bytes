@@ -64,6 +64,10 @@
 h1 {
     text-align: center;
 }
+fieldset {
+    padding: var(--zero);
+    border: none;
+}
 .button {
     all: inherit;
     padding: var(--button-padding);
