@@ -3,28 +3,37 @@ class Upload {
         this.label = label;
         this.input = input;
         this.table = undefined;
-        this.tableBody = undefined;
+        this.tbody = undefined;
         this.templateRow = undefined;
 
         this.init();
     }
     init() {
         this.label.addEventListener("click", () => this.input.click());
-        this.label.addEventListener("click", (event) => this.onclick(event));
+        this.input.addEventListener("change", (event) => this.onchange(event));
         this.table = document.querySelector("table");
-        this.tableBody = this.table.querySelector("tbody");
-        this.templateRow = this.tableBody.querySelector(".template");
+        this.tbody = this.table.querySelector("tbody");
+        this.templateRow = this.tbody.querySelector(".template");
     }
     get files() {
         return this.input.files;
     }
-    onclick(event) {
-        console.log(event);
-    }
-    addMultipleRows(...objs) {
-        const rows = objs.map((o) => this.templateRow.cloneNode(true));
+    onchange(event) {
+        console.log(event, this.files);
+        const files = Array.from(this.files).map(({ name, size }) => ({
+            fileName: name,
+            fileSize: size,
+            lineCount: undefined,
+            wordCount: undefined,
+            byteCount: undefined,
+        }));
 
-        this.setMultipleRowsContent(rows, objs);
+        this.addMultipleRows(files);
+    }
+    addMultipleRows(arrayOfObjs) {
+        const rows = arrayOfObjs.map((o) => this.templateRow.cloneNode(true));
+
+        this.setMultipleRowsContent(rows, arrayOfObjs);
 
         this.table.append(...rows);
     }
