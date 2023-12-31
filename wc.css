@@ -1,0 +1,101 @@
+:root {
+    /* fonts */
+    --font-monospace: "consolas", "lucida console", "Courier New", monospace;
+    --font-size-h2: clamp(2.0736rem, 2.0736rem + 1vw, 2.4883rem);
+    --font-size-h3: clamp(1.44rem, 1.44rem + 1vw, 1.728rem);
+
+    /* 1em, 2em, ... */
+    --two-em: 2em;
+    --one-em: 1em;
+    --half-em: 0.5em;
+    --quarter-em: 0.25em;
+    --tenth-em: 0.1em;
+    --zero: 0;
+
+    /* transition */
+    --transition-time-style: 200ms ease-in-out;
+
+    /* colors */
+    --white-body: snow;
+    --white-text: #6a2c70;
+    --white-border: #6a2c70;
+    --white-border-active: #6a2c70;
+
+    --dark-body: #451952;
+    --dark-text: #f39f5a;
+    --dark-border: #f39f5a61;
+    --dark-border-active: #f39f5a;
+
+    --color-bg: var(--white-body);
+    --color-text: var(--white-text);
+    --color-shadow: var(--white-border);
+    --color-hover: var(--white-border);
+    --color-border: var(--white-border);
+    --color-outline: var(--white-border);
+    --color-outline-active: var(--white-border-active);
+
+    /* misc. */
+    --border-radius: var(--quarter-em);
+    --small-gap: var(--one-em);
+    --big-gap: calc(2 * var(--small-gap));
+    --button-padding: var(--small-gap);
+    --letter-spacing: 0.1em;
+
+    /* .link */
+    --link-col-gap: var(--quarter-em);
+    --link-grid-cols: var(--one-em) var(--one-em) 1fr;
+    --link-text-padding-left: var(--half-em);
+
+    /* .nav */
+    --nav-row-gap: var(--one-em);
+    --nav-entry-padding-block: var(--one-em);
+    --nav-entry-padding-inline: var(--one-em);
+    --nav-entry-bg: aliceblue;
+
+    /* main */
+    --main-padding-inline: var(--two-em);
+    --main-row-gap: var(--two-em);
+
+    /* .section */
+    --section-row-gap: var(--one-em);
+    --section-padding-inline: var(--big-gap);
+    --section-padding-block: var(--big-gap);
+
+    /* .section.projects */
+    --projects-scroll-margin-inline-start: calc(5 * var(--one-em));
+    --projects-entry-border-radius: var(--quarter-em);
+    --projects-entry-padding: var(--one-em);
+
+    /* .section.contact */
+    --button-border-radius: var(--half-em);
+    --contact-fildset-column-gap: var(--two-em);
+    --contact-fildset-row-gap: var(--two-em);
+    --contact-input-border-radius: var(--border-radius);
+    --contact-submit-border-radius: var(--border-radius);
+    --contact-input-padding-inline: var(--one-em);
+    --contact-input-padding-block: var(--zero);
+
+    /* footer */
+    --footer-padding-block: var(--big-gap);
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: system-ui;
+    letter-spacing: var(--letter-spacing);
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-bg: var(--dark-body);
+        --color-text: var(--dark-text);
+        --color-shadow: var(--dark-border);
+        --color-hover: var(--dark-border);
+        --color-border: var(--dark-border);
+        --color-outline: var(--dark-border);
+        --color-outline-active: var(--dark-border-active);
+    }
+}
