@@ -21,8 +21,32 @@ class Upload {
     onclick(event) {
         console.log(event);
     }
-    addrow({ fileName, fileSize, lineCount, wordCount, byteCount }) {
+    addRow({ fileName, fileSize, lineCount, wordCount, byteCount }) {
         const row = this.templateRow.cloneNode(true);
+
+        this.setRowContent(row, {
+            fileName,
+            fileSize,
+            lineCount,
+            wordCount,
+            byteCount,
+        });
+    }
+    setRowContent(
+        row,
+        { fileName, fileSize, lineCount, wordCount, byteCount }
+    ) {
+        const nameCell = row.querySelector("file-name");
+        const sizeCell = row.querySelector("file-size");
+        const lineCountCell = row.querySelector("line-count");
+        const wordCountCell = row.querySelector("word-count");
+        const byteCountCell = row.querySelector("byte-count");
+
+        nameCell.textContent = fileName;
+        sizeCell.textContent = fileSize;
+        lineCountCell.textContent = lineCount;
+        wordCountCell.textContent = wordCount;
+        byteCountCell.textContent = byteCount;
     }
 }
 
