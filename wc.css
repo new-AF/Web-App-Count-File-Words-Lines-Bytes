@@ -70,15 +70,37 @@ fieldset {
     border: none;
 }
 table {
+    width: 100%;
     border: thick solid var(--color-border);
+    border-radius: var(--border-radius);
     border-collapse: collapse;
 }
 table th,
 table td {
+    width: calc(100% / 5);
     padding: var(--zero);
     border: thin solid var(--color-border);
-    text-align: left;
-    padding-inline: var(--small-gap);
+}
+th img {
+    object-fit: cover;
+    object-position: center;
+}
+th {
+    text-align: center;
+}
+th .button {
+    border-width: thin;
+    padding: unset;
+    border-radius: unset;
+    height: var(--small-gap);
+    width: 100%;
+}
+.button.settings {
+    background-image: url(settings.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    border-left: none;
+    border-right: none;
 }
 tbody {
 }

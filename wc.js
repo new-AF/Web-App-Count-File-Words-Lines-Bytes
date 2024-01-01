@@ -35,6 +35,7 @@ class Upload {
     }
     onchange(event) {
         console.log(event, this.files);
+
         const files = Array.from(this.files).map(({ name, size }) =>
             this.newObject(name, size)
         );
