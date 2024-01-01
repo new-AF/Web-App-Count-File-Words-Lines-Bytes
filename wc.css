@@ -107,7 +107,7 @@ tbody {
 .pad-top {
     padding-block-start: var(--small-gap);
 }
-.note {
+.second-text {
     filter: opacity(0.7) !important;
 }
 .button {
