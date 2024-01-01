@@ -87,20 +87,19 @@ th img {
 }
 th {
     text-align: center;
+    cursor: pointer;
 }
-th .button {
-    border-width: thin;
-    padding: unset;
-    border-radius: unset;
-    height: var(--small-gap);
-    width: 100%;
+th:hover {
+    backdrop-filter: var(--hover-brightness);
 }
 .button.settings {
+    display: inline !important;
+    border: unset;
+    padding: unset;
+    height: var(--small-gap);
     background-image: url(settings.svg);
     background-repeat: no-repeat;
     background-position: center;
-    border-left: none;
-    border-right: none;
 }
 tbody {
 }
