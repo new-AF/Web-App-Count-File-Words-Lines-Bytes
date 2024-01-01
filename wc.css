@@ -94,12 +94,14 @@ th:hover {
 }
 .button.settings {
     display: inline !important;
+    width: clamp(var(--one-em), 1.5vw, var(--two-em));
     border: unset;
     padding: unset;
     height: var(--small-gap);
     background-image: url(settings.svg);
     background-repeat: no-repeat;
     background-position: center;
+    opacity: 0.9;
 }
 tbody {
 }
