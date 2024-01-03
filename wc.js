@@ -97,6 +97,6 @@ function lineCount(oldText) {
     const matches = text.match(/\n/g);
     if (matches === null) return 0;
 
-    const size = matches.length;
-    return size;
+    const count = matches.length;
+    return count;
 }
