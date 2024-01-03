@@ -36,9 +36,10 @@ class Upload {
     onchange(event) {
         console.log(event, this.files);
 
-        const files = Array.from(this.files).map(({ name, size }) =>
-            this.newObject(name, size)
-        );
+        const files = Array.from(this.files).map(({ name, size: oldSize }) => {
+            const size = oldSize.toLocaleString();
+            return this.newObject(name, size);
+        });
 
         this.addMultipleRows(files);
     }

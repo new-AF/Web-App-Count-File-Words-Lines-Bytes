@@ -72,8 +72,8 @@ fieldset {
 table {
     width: 100%;
     border: thick solid var(--color-border);
-    border-radius: var(--border-radius);
     border-collapse: collapse;
+    border-radius: var(--border-radius);
 }
 table th,
 table td {
@@ -81,16 +81,19 @@ table td {
     padding: var(--zero);
     border: thin solid var(--color-border);
 }
-th img {
-    object-fit: cover;
-    object-position: center;
-}
 th {
     text-align: center;
     cursor: pointer;
 }
+td {
+    padding-inline: var(--small-gap);
+    text-align: center;
+}
 th:hover {
     backdrop-filter: var(--hover-brightness);
+}
+table th:first-child {
+    border-top-left-radius: var(--border-radius);
 }
 .button.settings {
     display: inline !important;
