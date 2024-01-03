@@ -65,6 +65,9 @@ class Upload {
                 const wordCountCell = row.querySelector(".word-count");
                 const byteCountCell = row.querySelector(".byte-count");
 
+                nameCell.classList.remove("spinner");
+                sizeCell.classList.remove("spinner");
+
                 nameCell.textContent = fileName;
                 sizeCell.textContent = fileSize;
                 lineCountCell.textContent = lineCount;
