@@ -176,4 +176,7 @@ footer {
         --color-outline: var(--dark-border);
         --color-outline-active: var(--dark-border-active);
     }
+    .button.settings {
+        filter: invert(0.5) !important;
+    }
 }

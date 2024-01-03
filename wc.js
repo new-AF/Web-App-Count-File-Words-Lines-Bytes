@@ -38,7 +38,8 @@ class Upload {
 
         const files = Array.from(this.files).map(({ name, size: oldSize }) => {
             const size = `${oldSize.toLocaleString()} Bytes`;
-            return this.newObject(name, size);
+            const obj = this.newObject(name, size);
+            return obj;
         });
 
         this.addMultipleRows(files);
@@ -78,3 +79,11 @@ const upload = new Upload(
     document.querySelector(".upload .button"),
     document.querySelector(".upload .input")
 );
+
+function lineCount(oldText) {
+    const matches = text.match(/\n/g);
+    if (matches === null) return 0;
+
+    const size = matches.length;
+    return size;
+}
