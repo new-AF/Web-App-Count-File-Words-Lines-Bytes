@@ -86,8 +86,12 @@ th {
     cursor: pointer;
 }
 td {
-    padding-inline: var(--small-gap);
+    padding-inline: var(--big-gap);
     text-align: center;
+}
+/* File Name cells */
+tr > td:first-child {
+    letter-spacing: unset;
 }
 th:hover {
     backdrop-filter: var(--hover-brightness);
