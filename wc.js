@@ -80,6 +80,16 @@ const upload = new Upload(
     document.querySelector(".upload .input")
 );
 
+function readFile(path, encoding) {
+    const fr = new FileReader();
+
+    fr.readAsText(path, encoding);
+
+    fr.onload = () => {
+        const cells = document.querySelectorAll("td");
+    };
+}
+
 function lineCount(oldText) {
     const matches = text.match(/\n/g);
     if (matches === null) return 0;
