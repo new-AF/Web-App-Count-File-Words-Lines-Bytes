@@ -37,7 +37,7 @@ class Upload {
         console.log(event, this.files);
 
         const files = Array.from(this.files).map(({ name, size: oldSize }) => {
-            const size = oldSize.toLocaleString();
+            const size = `${oldSize.toLocaleString()} Bytes`;
             return this.newObject(name, size);
         });
 
