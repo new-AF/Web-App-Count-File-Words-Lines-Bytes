@@ -29,14 +29,19 @@ class Upload {
 
     addRowsFromFiles(files) {
         // array of Row Objects
-        const rows = Array.from(files, fn);
-
-        function fn({ name, size }) {
-            return this.createRow(name, size);
-        }
+        const rows = Array.from(files, ({ name, size }) =>
+            this.createRow(name, size)
+        );
 
         // array of <tr></tr> DOM elements
         const elements = rows.map((_) => this.templateRow.cloneNode(true));
+
+        /* console.group();
+
+        console.log("--rows", rows);
+        console.log("--elements", elements);
+
+        console.groupEnd(); */
 
         this.setRows(elements, rows);
 
@@ -58,7 +63,7 @@ class Upload {
         };
     }
     setRows(elements, rows) {
-        rows.forEach((object) => fn(object));
+        rows.forEach((object, index) => fn(object, index));
 
         function fn(
             { fileName, fileSize, lineCount, wordCount, byteCount },
@@ -89,14 +94,12 @@ const upload = new Upload(
     document.querySelector(".upload .input")
 );
 
-function readFile(path, encoding) {
+function txtFromFile(path, encoding, onComplete) {
     const fr = new FileReader();
 
     fr.readAsText(path, encoding);
 
-    fr.onload = () => {
-        const cells = document.querySelectorAll("td");
-    };
+    fr.onload = onComplete;
 }
 
 function lineCount(oldText) {
