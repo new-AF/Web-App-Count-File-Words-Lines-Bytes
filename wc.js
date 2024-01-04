@@ -91,6 +91,7 @@ function readTextFromFile(fileObj, encoding, onComplete) {
 
     fr.readAsText(fileObj, encoding);
 
+    /* crux of project: async callback to set cell */
     fr.onload = () => onComplete(fr.result);
 }
 
