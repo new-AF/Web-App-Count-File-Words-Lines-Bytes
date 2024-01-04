@@ -18,6 +18,30 @@ class Upload {
     get files() {
         return this.input.files;
     }
+
+    onchange(event) {
+        const files = this.files;
+
+        console.log(event, files);
+
+        this.addRowsFromFiles(files);
+    }
+
+    addRowsFromFiles(files) {
+        // array of Row Objects
+        const rows = Array.from(files, fn);
+
+        function fn({ name, size }) {
+            return this.createRow(name, size);
+        }
+
+        // array of <tr></tr> DOM elements
+        const elements = rows.map((_) => this.templateRow.cloneNode(true));
+
+        this.setRows(elements, rows);
+
+        this.table.append(...elements);
+    }
     createRow(
         fileName,
         fileSize,
@@ -33,51 +57,30 @@ class Upload {
             byteCount,
         };
     }
-    onchange(event) {
-        const files = this.files;
-
-        console.log(event, files);
-
-        this.addRowsFromFiles(files);
-    }
-    addRowsFromFiles(files) {
-        const map = ({ name, size }) => this.createRow(name, size);
-
-        // array of Row Objects
-        const rows = Array.from(files, map);
-
-        // array of <tr></tr> DOM elements
-        const elements = rows.map((_) => this.templateRow.cloneNode(true));
-
-        this.setRows(elements, rows);
-
-        this.table.append(...elements);
-    }
-
     setRows(elements, rows) {
-        rows.forEach(
-            (
-                { fileName, fileSize, lineCount, wordCount, byteCount },
-                index
-            ) => {
-                const row = elements[index];
+        rows.forEach((object) => fn(object));
 
-                const nameCell = row.querySelector(".file-name");
-                const sizeCell = row.querySelector(".file-size");
-                const lineCountCell = row.querySelector(".line-count");
-                const wordCountCell = row.querySelector(".word-count");
-                const byteCountCell = row.querySelector(".byte-count");
+        function fn(
+            { fileName, fileSize, lineCount, wordCount, byteCount },
+            index
+        ) {
+            const row = elements[index];
 
-                nameCell.classList.remove("spinner");
-                sizeCell.classList.remove("spinner");
+            const nameCell = row.querySelector(".file-name");
+            const sizeCell = row.querySelector(".file-size");
+            const lineCountCell = row.querySelector(".line-count");
+            const wordCountCell = row.querySelector(".word-count");
+            const byteCountCell = row.querySelector(".byte-count");
 
-                nameCell.textContent = fileName;
-                sizeCell.textContent = fileSize;
-                lineCountCell.textContent = lineCount;
-                wordCountCell.textContent = wordCount;
-                byteCountCell.textContent = byteCount;
-            }
-        );
+            nameCell.classList.remove("spinner");
+            sizeCell.classList.remove("spinner");
+
+            nameCell.textContent = fileName;
+            sizeCell.textContent = fileSize;
+            lineCountCell.textContent = lineCount;
+            wordCountCell.textContent = wordCount;
+            byteCountCell.textContent = byteCount;
+        }
     }
 }
 
