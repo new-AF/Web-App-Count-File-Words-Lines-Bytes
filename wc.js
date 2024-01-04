@@ -99,7 +99,7 @@ function txtFromFile(path, encoding, onComplete) {
 
     fr.readAsText(path, encoding);
 
-    fr.onload = onComplete;
+    fr.onload = () => onComplete(fr.result);
 }
 
 function lineCount(oldText) {
