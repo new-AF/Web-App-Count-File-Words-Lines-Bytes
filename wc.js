@@ -18,7 +18,7 @@ class Upload {
     get files() {
         return this.input.files;
     }
-    newObject(
+    createRow(
         fileName,
         fileSize,
         lineCount = undefined,
@@ -34,30 +34,33 @@ class Upload {
         };
     }
     onchange(event) {
-        console.log(event, this.files);
+        const files = this.files;
 
-        const files = Array.from(this.files).map(({ name, size: oldSize }) => {
-            const size = `${oldSize.toLocaleString()} Bytes`;
-            const obj = this.newObject(name, size);
-            return obj;
-        });
+        console.log(event, files);
 
-        this.addMultipleRows(files);
+        this.addRowsFromFiles(files);
     }
-    addMultipleRows(arrayOfObjs) {
-        const rows = arrayOfObjs.map((o) => this.templateRow.cloneNode(true));
+    addRowsFromFiles(files) {
+        const map = ({ name, size }) => this.createRow(name, size);
 
-        this.setMultipleRowsContent(rows, arrayOfObjs);
+        // array of Row Objects
+        const rows = Array.from(files, map);
 
-        this.table.append(...rows);
+        // array of <tr></tr> DOM elements
+        const elements = rows.map((_) => this.templateRow.cloneNode(true));
+
+        this.setRows(elements, rows);
+
+        this.table.append(...elements);
     }
-    setMultipleRowsContent(rows, objs) {
-        objs.forEach(
+
+    setRows(elements, rows) {
+        rows.forEach(
             (
                 { fileName, fileSize, lineCount, wordCount, byteCount },
                 index
             ) => {
-                const row = rows[index];
+                const row = elements[index];
 
                 const nameCell = row.querySelector(".file-name");
                 const sizeCell = row.querySelector(".file-size");

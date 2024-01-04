@@ -98,7 +98,6 @@ td {
     border: 5px solid #fff;
     border-bottom-color: transparent;
     border-radius: 50%;
-
     animation: spin 1s linear infinite;
 }
 @keyframes spin {
