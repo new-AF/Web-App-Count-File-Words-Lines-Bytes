@@ -35,7 +35,7 @@
     --color-outline-active: var(--white-border-active);
 
     /* misc. */
-    --border-radius: var(--quarter-em);
+    --border-radius: var(--one-em);
     --small-gap: var(--one-em);
     --big-gap: calc(2 * var(--small-gap));
     --button-padding: var(--small-gap);
@@ -72,7 +72,7 @@ fieldset {
 table {
     width: 100%;
     border: thick solid var(--color-border);
-    border-collapse: collapse;
+    border-spacing: var(--zero);
     border-radius: var(--border-radius);
 }
 table th,
@@ -115,8 +115,22 @@ tr > td:first-child {
 th:hover {
     backdrop-filter: var(--hover-brightness);
 }
+/* left corner */
 table th:first-child {
-    border-top-left-radius: var(--border-radius);
+    border-color: transparent;
+}
+/* right corner */
+table th:last-child {
+    border-color: transparent;
+}
+/* bottom left corner */
+table tr:last-child td:first-child {
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+} /* bottom right corner */
+table tr:last-child td:lasr-child {
+    border-right-color: transparent;
+    border-bottom-color: transparent;
 }
 .button.settings {
     display: inline !important;
