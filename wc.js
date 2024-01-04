@@ -28,14 +28,10 @@ class Upload {
     }
 
     addRowsFromFiles(files) {
-        // array of Row Objects
-        const rows = Array.from(files, ({ name, size }) =>
-            this.createRow(name, size)
-        );
-
         // array of <tr></tr> DOM elements
-        const elements = rows.map((_) => this.templateRow.cloneNode(true));
-
+        const elements = Array.from(files, (_) =>
+            this.templateRow.cloneNode(true)
+        );
         /* console.group();
 
         console.log("--rows", rows);
@@ -43,34 +39,15 @@ class Upload {
 
         console.groupEnd(); */
 
-        this.setRows(elements, rows);
-
         this.table.append(...elements);
-    }
-    createRow(
-        fileName,
-        fileSize,
-        lineCount = undefined,
-        wordCount = undefined,
-        byteCount = undefined
-    ) {
-        return {
-            fileName,
-            fileSize,
-            lineCount,
-            wordCount,
-            byteCount,
-        };
-    }
-    setRows(elements, rows) {
-        rows.forEach((object, index) => fn(object, index));
 
-        function fn(
-            { fileName, fileSize, lineCount, wordCount, byteCount },
-            index
-        ) {
-            const row = elements[index];
+        this.fillRows(elements, files);
+    }
+    fillRows(elements, files) {
+        Array.from(files).forEach((file, index) => fn(file, elements[index]));
 
+        function fn(file, row) {
+            const { name: fileName, size: fileSize } = file;
             const nameCell = row.querySelector(".file-name");
             const sizeCell = row.querySelector(".file-size");
             const lineCountCell = row.querySelector(".line-count");
@@ -82,9 +59,9 @@ class Upload {
 
             nameCell.textContent = fileName;
             sizeCell.textContent = fileSize;
-            lineCountCell.textContent = lineCount;
-            wordCountCell.textContent = wordCount;
-            byteCountCell.textContent = byteCount;
+            lineCountCell.textContent = "";
+            wordCountCell.textContent = "";
+            setByteCell(byteCountCell, file);
         }
     }
 }
@@ -94,10 +71,25 @@ const upload = new Upload(
     document.querySelector(".upload .input")
 );
 
-function txtFromFile(path, encoding, onComplete) {
+function setNameCell(ref, text) {
+    ref.textContent = text;
+}
+
+function setByteCell(ref, file) {
+    readTextFromFile(file, undefined, (text) => {
+        ref.textContent = text.length;
+        removeSpinner(ref);
+    });
+}
+
+function removeSpinner(ref) {
+    ref.classList.remove("spinner");
+}
+
+function readTextFromFile(fileObj, encoding, onComplete) {
     const fr = new FileReader();
 
-    fr.readAsText(path, encoding);
+    fr.readAsText(fileObj, encoding);
 
     fr.onload = () => onComplete(fr.result);
 }
