@@ -54,14 +54,15 @@ class Upload {
             const wordCountCell = row.querySelector(".word-count");
             const byteCountCell = row.querySelector(".byte-count");
 
-            nameCell.classList.remove("spinner");
-            sizeCell.classList.remove("spinner");
+            setNameCell(nameCell, fileName);
 
-            nameCell.textContent = fileName;
-            sizeCell.textContent = fileSize;
-            lineCountCell.textContent = "";
-            wordCountCell.textContent = "";
-            setByteCell(byteCountCell, file);
+            setSizeCell(sizeCell, fileSize);
+
+            readTextFromFile(file, undefined, (text) => {
+                setLineCell(lineCountCell, text);
+                setWordCell(wordCountCell, text);
+            });
+            /* end of readTextFromFile */
         }
     }
 }
@@ -71,15 +72,29 @@ const upload = new Upload(
     document.querySelector(".upload .input")
 );
 
-function setNameCell(ref, text) {
-    ref.textContent = text;
+function setNameCell(ref, fileName) {
+    removeSpinner(ref);
+    ref.textContent = fileName;
 }
 
-function setByteCell(ref, file) {
-    readTextFromFile(file, undefined, (text) => {
-        ref.textContent = text.length;
-        removeSpinner(ref);
-    });
+function setSizeCell(ref, size) {
+    removeSpinner(ref);
+    ref.textContent = size;
+}
+
+function setByteCell(ref, size) {
+    removeSpinner(ref);
+    ref.textContent = size;
+}
+
+function setLineCell(ref, text) {
+    removeSpinner(ref);
+    ref.textContent = "line cell";
+}
+
+function setWordCell(ref, text) {
+    removeSpinner(ref);
+    ref.textContent = "word cell";
 }
 
 function removeSpinner(ref) {
