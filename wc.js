@@ -52,7 +52,6 @@ class Upload {
             const sizeCell = row.querySelector(".file-size");
             const lineCountCell = row.querySelector(".line-count");
             const wordCountCell = row.querySelector(".word-count");
-            const byteCountCell = row.querySelector(".byte-count");
 
             setNameCell(nameCell, fileName);
 
@@ -78,11 +77,6 @@ function setNameCell(ref, fileName) {
 }
 
 function setSizeCell(ref, size) {
-    removeSpinner(ref);
-    ref.textContent = size;
-}
-
-function setByteCell(ref, size) {
     removeSpinner(ref);
     ref.textContent = size;
 }

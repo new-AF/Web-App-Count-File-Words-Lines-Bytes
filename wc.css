@@ -56,6 +56,11 @@
 
     /* footer */
     --footer-padding-block: var(--big-gap);
+
+    /* table header cells */
+    --file-name-col-width: 40%;
+    --rest-cols-width: calc(100% - var(--file-name-col-width));
+    --other-col-width: calc(var(--rest-cols-width) / 3);
 }
 * {
     box-sizing: border-box;
@@ -75,19 +80,22 @@ table {
     border-spacing: var(--zero);
     border-radius: var(--border-radius);
 }
-table th,
-table td {
-    width: calc(100% / 5);
-    border: thin solid var(--color-border);
-}
 th {
     padding-inline: var(--tenth-em);
     padding-block: var(--big-gap);
     text-align: center;
     cursor: pointer;
+    border: thin solid var(--color-border);
 }
 td {
     padding: var(--small-gap) !important;
+    border: thin solid var(--color-border);
+}
+.header-cell {
+    width: var(--other-col-width);
+}
+.file-name.header-cell {
+    width: var(--file-name-col-width);
 }
 .spinner::after {
     content: "";
@@ -143,6 +151,9 @@ table tr:last-child td:lasr-child {
     background-position: center;
 }
 tbody {
+}
+.file-size-header {
+    display: -moz-inline-grid;
 }
 .pad-top {
     padding-block-start: var(--small-gap);
