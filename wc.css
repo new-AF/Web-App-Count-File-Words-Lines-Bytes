@@ -15,16 +15,20 @@
     /* transition */
     --transition-time-style: 200ms ease-in-out;
 
+    --theme: white;
+
     /* colors */
     --white-body: snow;
     --white-text: #6a2c70;
     --white-border: #6a2c70;
     --white-border-active: #6a2c70;
+    --white-icon-invert: 0;
 
     --dark-body: #451952;
     --dark-text: #f39f5a;
     --dark-border: #f39f5a61;
     --dark-border-active: #f39f5a;
+    --dark-icon-invert: 1;
 
     --color-bg: var(--white-body);
     --color-text: var(--white-text);
@@ -33,6 +37,7 @@
     --color-border: var(--white-border);
     --color-outline: var(--white-border);
     --color-outline-active: var(--white-border-active);
+    --icon-invert: var(--white-icon-invert);
 
     /* misc. */
     --border-radius: var(--one-em);
@@ -69,6 +74,20 @@
 div {
     max-width: 50ch;
     overflow-wrap: anywhere;
+}
+header {
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    column-gap: var(--big-gap);
+}
+header .switch-themes {
+    align-self: start;
+    grid-template-columns: 1fr;
+}
+header .switch-themes::before {
+    filter: invert(var(--icon-invert));
+    align-self: center;
+    content: url(./circle-half.svg);
 }
 h1 {
     text-align: center;
@@ -135,6 +154,7 @@ tr > td:first-child {
     animation-timing-function: linear;
     width: 2em;
     height: 2em;
+    filter: invert(var(--icon-invert));
 }
 @keyframes spinnerAnimation {
     0% {
@@ -154,6 +174,7 @@ tr > td:first-child {
     background-image: url(settings.svg);
     background-repeat: no-repeat;
     background-position: center;
+    filter: invert(var(--icon-invert));
 }
 .pad-top {
     padding-block-start: var(--small-gap);
@@ -191,6 +212,7 @@ tr > td:first-child {
 }
 body {
     min-height: 100vh;
+    padding-inline: var(--big-gap);
     background-color: var(--color-bg);
     color: var(--color-text);
     font-family: system-ui;
@@ -214,6 +236,7 @@ footer {
 }
 @media (prefers-color-scheme: dark) {
     :root {
+        --theme: dark;
         --color-bg: var(--dark-body);
         --color-text: var(--dark-text);
         --color-shadow: var(--dark-border);
@@ -221,11 +244,6 @@ footer {
         --color-border: var(--dark-border);
         --color-outline: var(--dark-border);
         --color-outline-active: var(--dark-border-active);
-    }
-    .button.settings {
-        filter: invert(0.5) !important;
-    }
-    .spinner {
-        filter: invert(1);
+        --icon-invert: var(--dark-icon-invert);
     }
 }

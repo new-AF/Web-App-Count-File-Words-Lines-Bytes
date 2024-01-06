@@ -124,3 +124,45 @@ function lineCount(oldText) {
     const count = matches.length;
     return count;
 }
+
+function getTheme() {
+    const obj =
+        document.body.style.getPropertyValue("--theme") === ""
+            ? getComputedStyle(document.body)
+            : document.body.style;
+    const theme = obj.getPropertyValue("--theme");
+    return theme;
+}
+
+function cssVar(name) {
+    const obj = getComputedStyle(document.body);
+    const val = obj.getPropertyValue(name);
+    return val;
+}
+
+function setCSSVars(object) {
+    const style = document.body.style;
+
+    for (const [name, val] of Object.entries(object)) {
+        style.setProperty(name, val);
+    }
+}
+
+document
+    .querySelector("header .switch-themes")
+    .addEventListener("click", (event) => {
+        const oldTheme = getTheme();
+        const theme = oldTheme === "dark" ? "white" : "dark";
+
+        setCSSVars({
+            "--theme": theme,
+            "--color-bg": cssVar(`--${theme}-body`),
+            "--color-text": cssVar(`--${theme}-text`),
+            "--color-shadow": cssVar(`--${theme}-border`),
+            "--color-hover": cssVar(`--${theme}-border`),
+            "--color-border": cssVar(`--${theme}-border`),
+            "--color-outline": cssVar(`--${theme}-border`),
+            "--color-outline-active": cssVar(`--${theme}-border-active`),
+            "--icon-invert": cssVar(`--${theme}-icon-invert`),
+        });
+    });
