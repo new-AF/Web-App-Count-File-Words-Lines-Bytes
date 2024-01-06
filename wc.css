@@ -196,12 +196,14 @@ body {
     font-family: system-ui;
     letter-spacing: var(--letter-spacing);
     display: grid;
+    justify-content: center;
     row-gap: var(--big-gap);
     padding-block-start: var(--body-padding-block-start);
     grid-template-rows: auto 1fr auto;
 }
 main {
     display: grid;
+    justify-content: center;
     grid-template-columns: 1fr;
     padding-inline: var(--main-padding-inline);
     row-gap: var(--main-row-gap);
