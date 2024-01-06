@@ -85,7 +85,12 @@ function setByteCountCell(ref, oldSize) {
 
 function setLineCell(ref, text) {
     removeSpinner(ref);
-    ref.textContent = "line cell";
+    const array = text.match(/\n/g);
+    const rawCount = array === null ? 0 : array.length;
+    const formattedCount = rawCount.toLocaleString();
+    const lines = formattedCount;
+
+    ref.textContent = lines;
 }
 
 function setWordCell(ref, text) {
