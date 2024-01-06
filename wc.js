@@ -95,7 +95,13 @@ function setLineCell(ref, text) {
 
 function setWordCell(ref, text) {
     removeSpinner(ref);
-    ref.textContent = "word cell";
+    /* sequence of non-white-space characters*/
+    const array = text.match(/\S+/g);
+    const rawCount = array === null ? 0 : array.length;
+    const formattedCount = rawCount.toLocaleString();
+    const words = formattedCount;
+
+    ref.textContent = words;
 }
 
 function removeSpinner(ref) {
