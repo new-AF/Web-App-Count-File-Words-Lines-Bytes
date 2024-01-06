@@ -49,13 +49,13 @@ class Upload {
         function fn(file, row) {
             const { name: fileName, size: fileSize } = file;
             const nameCell = row.querySelector(".file-name");
-            const sizeCell = row.querySelector(".file-size");
+            const byteCountCell = row.querySelector(".byte-count");
             const lineCountCell = row.querySelector(".line-count");
             const wordCountCell = row.querySelector(".word-count");
 
             setNameCell(nameCell, fileName);
 
-            setSizeCell(sizeCell, fileSize);
+            setByteCountCell(byteCountCell, fileSize);
 
             readTextFromFile(file, undefined, (text) => {
                 setLineCell(lineCountCell, text);
@@ -76,7 +76,9 @@ function setNameCell(ref, fileName) {
     ref.textContent = fileName;
 }
 
-function setSizeCell(ref, size) {
+function setByteCountCell(ref, oldSize) {
+    const formattedSize = oldSize.toLocaleString();
+    const size = `${formattedSize} Bytes`;
     removeSpinner(ref);
     ref.textContent = size;
 }

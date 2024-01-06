@@ -88,8 +88,8 @@ th {
     padding-block: var(--big-gap);
     text-align: center;
     cursor: pointer;
-    border-right: thin solid var(--white-border);
-    border-left: thin solid var(--white-border);
+    border-right: thin solid var(--dark-border);
+    border-left: thin solid var(--dark-border);
 }
 td {
     padding: var(--small-gap) !important;
