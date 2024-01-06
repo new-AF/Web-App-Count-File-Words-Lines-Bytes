@@ -81,29 +81,30 @@ table {
     border-radius: var(--border-radius);
 }
 thead {
-    /* backdrop-filter: var(--hover-brightness); */
+    backdrop-filter: brightness(1.1);
 }
 th {
-    padding-inline: var(--tenth-em);
+    padding-inline: var(--small-gap);
     padding-block: var(--big-gap);
-    text-align: center;
     cursor: pointer;
-    border-right: thin solid var(--dark-border);
-    border-left: thin solid var(--dark-border);
+    text-align: start;
 }
 td {
-    padding: var(--small-gap) !important;
-    border: thin solid var(--color-border);
+    padding-inline: var(--small-gap);
+    padding-block: var(--small-gap);
 }
 tr:nth-child(even) {
-    backdrop-filter: brightness(0.975);
+    backdrop-filter: brightness(0.9);
 }
 
 .header-cell {
-    width: var(--other-col-width);
+    max-width: var(--other-col-width);
 }
-.file-name.header-cell {
-    width: var(--file-name-col-width);
+/* First column */
+tr > td:first-child {
+    background-color: red;
+    overflow-wrap: anywhere;
+    max-width: var(--file-name-col-width);
 }
 .spinner::before {
     content: "";
@@ -127,30 +128,11 @@ tr:nth-child(even) {
         transform: rotate(360deg);
     }
 }
-/* File Name cells */
-tr > td:first-child {
-    letter-spacing: unset;
+.template:first-child {
+    display: none;
 }
 th:hover {
     backdrop-filter: var(--hover-brightness);
-}
-/* left corner */
-table th:first-child {
-    border-top-color: transparent;
-}
-/* right corner */
-table th:last-child {
-    border-top-color: transparent;
-    border-right-color: transparent;
-}
-/* bottom left corner */
-table tr:last-child td:first-child {
-    border-left-color: transparent;
-    border-bottom-color: transparent;
-} /* bottom right corner */
-table tr:last-child td:lasr-child {
-    border-right-color: transparent;
-    border-bottom-color: transparent;
 }
 .button.settings {
     display: inline !important;

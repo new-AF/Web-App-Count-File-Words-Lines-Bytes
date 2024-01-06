@@ -44,7 +44,7 @@ class Upload {
         this.fillRows(elements, files);
     }
     fillRows(elements, files) {
-        Array.from(files).forEach((file, index) => fn(file, elements[index]));
+        Array.from(files, (file, index) => fn(file, elements[index]));
 
         function fn(file, row) {
             const { name: fileName, size: fileSize } = file;
