@@ -80,12 +80,16 @@ table {
     border-spacing: var(--zero);
     border-radius: var(--border-radius);
 }
+thead {
+    /* backdrop-filter: var(--hover-brightness); */
+}
 th {
     padding-inline: var(--tenth-em);
     padding-block: var(--big-gap);
     text-align: center;
     cursor: pointer;
-    border: thin solid var(--color-border);
+    border-right: thin solid var(--white-border);
+    border-left: thin solid var(--white-border);
 }
 td {
     padding: var(--small-gap) !important;
@@ -97,22 +101,25 @@ td {
 .file-name.header-cell {
     width: var(--file-name-col-width);
 }
-.spinner::after {
+.spinner::before {
     content: "";
-    display: block;
-    margin: 0 auto;
-    width: 48px;
-    height: 48px;
-    border: 5px solid #fff;
-    border-bottom-color: transparent;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
+    background-image: url(gear.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    display: grid;
+    place-items: center;
+    animation-name: spinnerAnimation;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    width: 2em;
+    height: 2em;
 }
-@keyframes spin {
-    from {
+@keyframes spinnerAnimation {
+    0% {
         transform: rotate(0deg);
     }
-    to {
+    100% {
         transform: rotate(360deg);
     }
 }
@@ -125,11 +132,12 @@ th:hover {
 }
 /* left corner */
 table th:first-child {
-    border-color: transparent;
+    border-top-color: transparent;
 }
 /* right corner */
 table th:last-child {
-    border-color: transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
 }
 /* bottom left corner */
 table tr:last-child td:first-child {
@@ -222,5 +230,8 @@ footer {
     }
     .button.settings {
         filter: invert(0.5) !important;
+    }
+    .spinner {
+        filter: invert(1);
     }
 }
