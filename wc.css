@@ -95,6 +95,10 @@ td {
     padding: var(--small-gap) !important;
     border: thin solid var(--color-border);
 }
+tr:nth-child(even) {
+    backdrop-filter: brightness(0.975);
+}
+
 .header-cell {
     width: var(--other-col-width);
 }
