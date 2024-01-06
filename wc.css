@@ -77,32 +77,44 @@ fieldset {
 table {
     width: 100%;
     border: thick solid var(--color-border);
+    /* to have rounded corners */
     border-spacing: var(--zero);
-    border-radius: var(--border-radius);
 }
 thead {
-    backdrop-filter: brightness(1.1);
+    background-color: var(--color-bg);
+    backdrop-filter: brightness(1.5);
+    /* make it sticky */
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    /* end */
+    transition: backdrop-filter var(--transition-time-style);
 }
-th {
+
+/* header cell */
+thead > tr > th {
     padding-inline: var(--small-gap);
     padding-block: var(--big-gap);
-    cursor: pointer;
     text-align: start;
 }
-td {
+
+/* row template */
+tbody > .template:first-child {
+    display: none;
+}
+/* data cell */
+tbody > tr > td {
     padding-inline: var(--small-gap);
     padding-block: var(--small-gap);
 }
-tr:nth-child(even) {
-    backdrop-filter: brightness(0.9);
+/*  Row onwards */
+tbody > tr:hover {
+    /* background-color: red; */
+    backdrop-filter: brightness(1.5);
 }
-
-.header-cell {
-    max-width: var(--other-col-width);
-}
-/* First column */
+/* First (Data) Column */
 tr > td:first-child {
-    background-color: red;
+    /* background-color: red; */
     overflow-wrap: anywhere;
     max-width: var(--file-name-col-width);
 }
@@ -128,14 +140,9 @@ tr > td:first-child {
         transform: rotate(360deg);
     }
 }
-.template:first-child {
-    display: none;
-}
-th:hover {
-    backdrop-filter: var(--hover-brightness);
-}
 .button.settings {
-    display: inline !important;
+    display: none;
+    /* display: inline !important; */
     width: clamp(var(--one-em), 1.5vw, var(--two-em));
     border: unset;
     padding: unset;
@@ -143,11 +150,6 @@ th:hover {
     background-image: url(settings.svg);
     background-repeat: no-repeat;
     background-position: center;
-}
-tbody {
-}
-.file-size-header {
-    display: -moz-inline-grid;
 }
 .pad-top {
     padding-block-start: var(--small-gap);

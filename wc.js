@@ -39,7 +39,7 @@ class Upload {
 
         console.groupEnd(); */
 
-        this.table.append(...elements);
+        this.tbody.append(...elements);
 
         this.fillRows(elements, files);
     }
