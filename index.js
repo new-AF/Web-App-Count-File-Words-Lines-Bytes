@@ -20,6 +20,7 @@ class Upload {
         this.label.addEventListener("dragover", (event) =>
             this.dragOver(event)
         );
+        this.label.addEventListener("drop", (event) => this.drop(event));
         this.table = document.querySelector("table");
         this.tbody = this.table.querySelector("tbody");
         this.templateRow = this.tbody.querySelector(".template");
@@ -50,13 +51,18 @@ class Upload {
     drop(event) {
         event.preventDefault();
         event.stopPropagation();
+        const files = event.dataTransfer.files;
+
+        // console.log(event, files);
+
+        this.addRowsFromFiles(files);
     }
 
     /* upload files */
     onchange(event) {
         const files = this.files;
 
-        console.log(event, files);
+        // console.log(event, files);
 
         this.addRowsFromFiles(files);
     }
