@@ -183,7 +183,7 @@ tr > td:first-child {
     filter: opacity(0.6) !important;
 }
 .button {
-    all: inherit;
+    background-color: inherit;
     padding: var(--button-padding);
     cursor: pointer;
     border: medium solid var(--color-border);
@@ -203,7 +203,6 @@ tr > td:first-child {
 .upload .button {
     border-style: dashed;
     border-width: thick;
-    filter: brightness(0.8);
     display: grid;
     align-content: center;
 }
@@ -214,6 +213,7 @@ body {
     min-height: 100vh;
     padding-inline: var(--big-gap);
     background-color: var(--color-bg);
+    transition: background-color 2s ease-out, color 5s ease-out;
     color: var(--color-text);
     font-family: system-ui;
     letter-spacing: var(--letter-spacing);
