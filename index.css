@@ -71,6 +71,14 @@
     box-sizing: border-box;
     margin: 0;
 }
+a {
+    cursor: pointer;
+    color: inherit;
+
+    &:visited {
+        color: inherit;
+    }
+}
 div {
     max-width: 50ch;
     overflow-wrap: anywhere;
