@@ -11,6 +11,15 @@ class Upload {
     init() {
         this.label.addEventListener("click", () => this.input.click());
         this.input.addEventListener("change", (event) => this.onchange(event));
+        this.label.addEventListener("dragenter", (event) =>
+            this.dragenter(event)
+        );
+        this.label.addEventListener("dragleave", (event) =>
+            this.dragleave(event)
+        );
+        this.label.addEventListener("dragover", (event) =>
+            this.dragOver(event)
+        );
         this.table = document.querySelector("table");
         this.tbody = this.table.querySelector("tbody");
         this.templateRow = this.tbody.querySelector(".template");
@@ -19,6 +28,31 @@ class Upload {
         return this.input.files;
     }
 
+    dragenter(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        this.label.classList.add("dragenter");
+    }
+
+    dragleave(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        this.label.classList.remove("dragenter");
+    }
+
+    dragOver(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        this.label.classList.add("dragenter");
+    }
+
+    /* drop file */
+    drop(event) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
+
+    /* upload files */
     onchange(event) {
         const files = this.files;
 

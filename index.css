@@ -206,6 +206,10 @@ tr > td:first-child {
     display: grid;
     align-content: center;
 }
+.dragenter {
+    border-color: var(--color-text);
+    /* border-style: dotted; */
+}
 .upload .input {
     display: none;
 }
